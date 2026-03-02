@@ -1,24 +1,19 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   TrendingUp, Eye, Heart, MessageCircle, Share2,
-  Play, ChevronLeft, ChevronRight, Sparkles, X, Clock, Tag, Film, Lightbulb
+  Play, Sparkles, X, Clock, Tag, Film, Lightbulb, Flame
 } from 'lucide-react';
-import { trendingVideos } from '../data/trendingVideos';
+import { trendingVideos, parseViews } from '../data/trendingVideos';
 import './TrendingVideos.css';
 
 const pageVariants = {
   initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.5, staggerChildren: 0.1 } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.5, staggerChildren: 0.05 } },
   exit: { opacity: 0, y: -20, transition: { duration: 0.3 } }
 };
 
-const cardVariants = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-};
-
-// Color palette for thumbnail gradients
+// Color palette for thumbnail gradients (fallback when images fail)
 const thumbnailColors = [
   ['#6b1d4a', '#1a0a1e'],
   ['#1a3a5c', '#0a1628'],
@@ -38,14 +33,45 @@ function getTikTokVideoId(url) {
   return match ? match[1] : null;
 }
 
-function VideoThumbnail({ video, index, size = 'large' }) {
+function getVideoTier(video) {
+  if (video.rank <= 3) return 'featured';
+  const views = parseViews(video.views);
+  if (views >= 1_000_000) return 'high';
+  if (views >= 400_000) return 'medium';
+  return 'small';
+}
+
+// Row/col spans vary per tier for organic cloud feel + tight packing
+// With grid-auto-flow: dense, the browser fills gaps automatically
+// Key: uniform row heights within tiers = no vertical gaps
+function getRowSpan(tier, index) {
+  if (tier === 'featured') return 8;
+  if (tier === 'high') return 3;       // uniform height for high
+  if (tier === 'medium') return 3;     // uniform height for medium
+  return 2;                             // uniform height for small
+}
+
+function getColSpan(tier, index) {
+  if (tier === 'featured') return 4;
+  if (tier === 'high') return 3;        // 4 cards × 3 = 12 (perfect row)
+  if (tier === 'medium') {
+    // 5 cards: 3+3+2+2+2 = 12 → first 2 wider, last 3 narrower
+    const pattern = [3, 3, 2, 2, 2];
+    return pattern[index % pattern.length];
+  }
+  // small 9 cards: 2+2+2+3+3 = 12, 2+2+2+3+3 = 12 → clean tile
+  const pattern = [2, 2, 2, 3, 3, 2, 2, 2, 3];
+  return pattern[index % pattern.length];
+}
+
+function CloudThumbnail({ video, index }) {
   const [imgError, setImgError] = useState(false);
   const colors = thumbnailColors[index % thumbnailColors.length];
   const hasThumbnail = video.thumbnail && !imgError;
 
   return (
     <div
-      className={`video-thumbnail ${size}`}
+      className="cloud-thumb"
       style={{
         background: hasThumbnail ? '#000' : `linear-gradient(135deg, ${colors[0]}, ${colors[1]})`
       }}
@@ -54,67 +80,96 @@ function VideoThumbnail({ video, index, size = 'large' }) {
         <img
           src={video.thumbnail}
           alt={video.title}
-          className="thumbnail-img"
+          className="cloud-thumb-img"
           onError={() => setImgError(true)}
           loading="lazy"
         />
       )}
-      <div className="thumbnail-overlay">
-        <Play size={size === 'large' ? 32 : 20} />
+      <div className="cloud-thumb-play">
+        <Play size={16} />
       </div>
-      <div className="thumbnail-rank">#{video.rank}</div>
-      <div className="thumbnail-duration">{video.analysis.duration_seconds}s</div>
     </div>
   );
 }
 
-function FeaturedVideoCard({ video, onSelect, onViewAnalysis }) {
+function CloudCard({ video, tier, index, onSelect, onDetail }) {
   const videoId = getTikTokVideoId(video.tiktokUrl);
+  const rowSpan = getRowSpan(tier, index);
+  const colSpan = getColSpan(tier, index);
 
   return (
     <motion.div
-      className="top-video-card featured-embed"
-      variants={cardVariants}
-      whileHover={{ y: -4 }}
+      className={`cloud-card cloud-card--${tier}`}
+      data-rank={video.rank}
+      style={tier !== 'featured' ? {
+        gridColumn: `span ${colSpan}`,
+        gridRow: `span ${rowSpan}`,
+      } : undefined}
+      initial={{ opacity: 0, scale: 0.85, y: 20 }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        transition: {
+          delay: index * 0.04,
+          duration: 0.5,
+          ease: [0.25, 0.46, 0.45, 0.94],
+        },
+      }}
+      whileHover={tier !== 'featured' ? { scale: 1.03, zIndex: 10 } : {}}
+      onClick={() => tier !== 'featured' ? onDetail(video) : undefined}
     >
-      {/* TikTok embed */}
-      <div className="featured-tiktok-frame">
-        {videoId ? (
-          <iframe
-            src={`https://www.tiktok.com/player/v1/${videoId}?autoplay=0&loop=1&controls=1`}
-            className="tiktok-embed-iframe"
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-          />
-        ) : (
-          <div className="featured-tiktok-placeholder">
-            <Play size={32} />
-            <span>TikTok unavailable</span>
+      {/* Featured cards get TikTok embed + trending badge */}
+      {tier === 'featured' ? (
+        <div className="cloud-featured-embed">
+          {videoId ? (
+            <iframe
+              src={`https://www.tiktok.com/player/v1/${videoId}?autoplay=0&loop=1&controls=1`}
+              className="cloud-tiktok-iframe"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+            />
+          ) : (
+            <div className="cloud-tiktok-placeholder">
+              <Play size={32} />
+              <span>TikTok unavailable</span>
+            </div>
+          )}
+          <div className="cloud-trending-badge">
+            <Flame size={13} />
+            <span>#{video.rank} Trending</span>
+          </div>
+        </div>
+      ) : (
+        <CloudThumbnail video={video} index={index} />
+      )}
+
+      {/* Info overlay */}
+      <div className={`cloud-card-info ${tier === 'featured' ? 'cloud-info--featured' : 'cloud-info--hover'}`}>
+        <div className="cloud-rank">#{video.rank}</div>
+        <h4 className="cloud-title">{video.title}</h4>
+        <p className="cloud-creator">{video.creator}</p>
+        <div className="cloud-stats">
+          <span><Eye size={11} />{video.views}</span>
+          <span><Heart size={11} />{video.likes}</span>
+        </div>
+
+        {tier === 'featured' && (
+          <div className="cloud-featured-actions">
+            <button className="btn-secondary cloud-analysis-btn" onClick={(e) => { e.stopPropagation(); onDetail(video); }}>
+              <Sparkles size={12} />
+              AI Analysis
+            </button>
+            <button className="btn-primary cloud-use-btn" onClick={(e) => { e.stopPropagation(); onSelect(video); }}>
+              <Sparkles size={14} />
+              Use This Format
+            </button>
           </div>
         )}
       </div>
 
-      {/* Info + actions */}
-      <div className="top-video-info">
-        <div className="video-rank-badge">#{video.rank}</div>
-        <h4 className="video-title">{video.title}</h4>
-        <p className="video-creator">{video.creator}</p>
-        <div className="video-stats-row">
-          <span><Eye size={12} />{video.views}</span>
-          <span><Heart size={12} />{video.likes}</span>
-        </div>
-        <div className="featured-actions">
-          <button className="btn-secondary featured-analysis-btn" onClick={(e) => { e.stopPropagation(); onViewAnalysis(video); }}>
-            <Sparkles size={12} />
-            AI Analysis
-          </button>
-          <button className="btn-primary featured-select-btn" onClick={() => onSelect(video)}>
-            <Sparkles size={14} />
-            Use This Format
-          </button>
-        </div>
-      </div>
-      <div className="card-glow" />
+      {/* Glow for featured cards */}
+      {tier === 'featured' && <div className="cloud-card-glow" />}
     </motion.div>
   );
 }
@@ -198,16 +253,6 @@ function VideoDetailPanel({ video, onClose, onSelect }) {
 
 export default function TrendingVideos({ onSelectVideo }) {
   const [selectedDetail, setSelectedDetail] = useState(null);
-  const carouselRef = useRef(null);
-
-  const topVideos = trendingVideos.slice(0, 3);
-  const restVideos = trendingVideos.slice(3);
-
-  const scrollCarousel = (dir) => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: dir * 240, behavior: 'smooth' });
-    }
-  };
 
   return (
     <motion.div
@@ -217,7 +262,12 @@ export default function TrendingVideos({ onSelectVideo }) {
       animate="animate"
       exit="exit"
     >
-      <motion.div className="section-header" variants={cardVariants}>
+      <motion.div
+        className="section-header"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+      >
         <div className="section-header-left">
           <TrendingUp size={20} className="section-icon" />
           <div>
@@ -231,54 +281,22 @@ export default function TrendingVideos({ onSelectVideo }) {
         </div>
       </motion.div>
 
-      {/* Top 3 Featured Videos — always embedded TikTok players */}
-      <motion.div className="top-videos" variants={cardVariants}>
-        {topVideos.map((video) => (
-          <FeaturedVideoCard
-            key={video.id}
-            video={video}
-            onSelect={onSelectVideo}
-            onViewAnalysis={setSelectedDetail}
-          />
-        ))}
-      </motion.div>
-
-      {/* Carousel for remaining videos */}
-      {restVideos.length > 0 && (
-        <motion.div className="carousel-section" variants={cardVariants}>
-          <div className="carousel-header">
-            <span className="carousel-label">More Trending</span>
-            <div className="carousel-controls">
-              <button className="carousel-btn" onClick={() => scrollCarousel(-1)}>
-                <ChevronLeft size={16} />
-              </button>
-              <button className="carousel-btn" onClick={() => scrollCarousel(1)}>
-                <ChevronRight size={16} />
-              </button>
-            </div>
-          </div>
-          <div className="carousel-track" ref={carouselRef}>
-            {restVideos.map((video, i) => (
-              <motion.div
-                key={video.id}
-                className="carousel-card"
-                whileHover={{ y: -3, scale: 1.02 }}
-                onClick={() => setSelectedDetail(video)}
-              >
-                <VideoThumbnail video={video} index={i + 3} size="small" />
-                <div className="carousel-card-info">
-                  <span className="carousel-rank">#{video.rank}</span>
-                  <h5 className="carousel-title">{video.title}</h5>
-                  <p className="carousel-creator">{video.creator}</p>
-                  <div className="carousel-stats">
-                    <span><Eye size={10} />{video.views}</span>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      )}
+      {/* Video Cloud */}
+      <div className="video-cloud">
+        {trendingVideos.map((video, i) => {
+          const tier = getVideoTier(video);
+          return (
+            <CloudCard
+              key={video.id}
+              video={video}
+              tier={tier}
+              index={i}
+              onSelect={onSelectVideo}
+              onDetail={setSelectedDetail}
+            />
+          );
+        })}
+      </div>
 
       {/* Detail Panel */}
       <AnimatePresence>
