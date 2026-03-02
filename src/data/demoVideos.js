@@ -2,109 +2,103 @@
 // Each entry contains everything needed to populate all 3 steps of the demo wizard
 
 export const demoVideos = [
-  // ── Kristin Hannah — Before/After Crying BookTok ──────────────────
+  // ── My Husband's Wife — Candlelit Book Quote Card ─────────────────
   {
-    id: "kristin_hannah_v1",
+    id: "husbands_wife_v1",
     reference: {
-      title: "Before vs after reading this book",
-      creator: "@yannareads",
-      tiktokUrl: "https://www.tiktok.com/@yannareads/video/7510655432021577006",
-      thumbnail: "/thumbnails/kristin_hannah_ref.jpg",
+      title: "Candlelit book quote card",
+      creator: "@macmillanpublishers",
+      tiktokUrl: "https://www.tiktok.com/@macmillanpublishers/video/7567397377993215262",
+      thumbnail: "/thumbnails/husbands_wife_v1_ref.jpg",
       views: "2.1M",
       likes: "487K",
       comments: "5.8K",
       shares: "22.3K",
       analysis: {
-        name: "Before/After Crying BookTok",
-        description: "A two-part reaction format showing the creator confidently holding a book before starting it, then cutting to them visibly emotional and crying while clutching the same book after reading it.",
-        narrative_style: "Voiceover Narration",
+        name: "Candlelit Book Quote Card",
+        description: "A single static-feeling atmospheric shot of a book beside a flickering candle, with a prominent literary quote overlaid in white text \u2014 no voiceover, no cuts, pure mood.",
+        narrative_style: "Text Only",
         duration_seconds: 10,
-        content_analysis: "The stark before/after contrast is one of BookTok's most viral formats. The emotional gut-punch relies entirely on the visual whiplash between composed confidence and raw devastation — no explanation needed.",
-        genre_topic: "Literary Fiction / Emotional",
-        visual_direction: "Vertical smartphone selfie style, close-up portrait, bright natural daylight, candid and unfiltered feel, warm skin tones, authentic emotional expression",
-        hook_strategy: "Visceral Scenario — The contrast between composed before and destroyed after IS the hook"
+        content_analysis: "The dark academia candlelit aesthetic taps into BookTok's love of moody atmospheric content. A gut-punch quote does all the selling \u2014 viewers pause, reread, and save. High save-to-view ratio format.",
+        genre_topic: "Psychological Thriller",
+        visual_direction: "Cinematic dark academia flatlay, dark wooden surface, amber tealight candle, deep shadows, moody candlelit atmosphere, portrait orientation",
+        hook_strategy: "Visceral Scenario \u2014 A quote so unsettling it makes readers pause mid-scroll"
       }
     },
     book: {
-      id: "great-alone",
-      title: "The Great Alone",
-      author: "Kristin Hannah",
-      imprint: "St. Martin's Press",
-      isbn: "9781250229533",
-      coverUrl: "https://covers.openlibrary.org/b/id/10168469-L.jpg",
-      genre: "Fiction / Family Life",
-      description: "It is 1974 when Leni Allbright's impulsive father Ernt decides the family is moving to Alaska. But the Alaskan winter is just as unforgiving as Ernt, and life quickly becomes a struggle for survival.",
-      bookTokAppeal: "Kristin Hannah's signature ability to emotionally destroy readers makes this a perennial BookTok favorite — the Alaska setting and family drama hit especially hard.",
-      color: "#3d6b5a"
+      id: "my-husbands-wife",
+      title: "My Husband's Wife",
+      author: "Alice Feeney",
+      imprint: "Flatiron Books",
+      isbn: "9781250337818",
+      coverUrl: "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1747668611i/231127462.jpg",
+      genre: "Psychological Thriller",
+      description: "When she returns to Spyglass, the enchanting old house in Hope Falls, nothing is as it should be. Her key doesn't fit. A woman eerily similar to her answers the door. And her husband insists that the stranger is his wife.",
+      bookTokAppeal: "Alice Feeney's trademark unreliable narrators and jaw-dropping twists make this catnip for thriller BookTok \u2014 the 'who is the real wife?' premise is instantly shareable.",
+      color: "#c8601a"
     },
-    videoPath: "/videos/kristin_hannah_v1_final.mp4",
+    videoPath: "/videos/husbands_wife_v1_final.mp4",
     formatSpec: {
       format_meta: {
-        name: "before_after_crying_booktok",
-        description: "A two-part reaction format showing the creator confidently holding a book before starting it, then cutting to them visibly emotional and crying while clutching the same book after reading it."
+        name: "candlelit_book_quote_card",
+        description: "A single static-feeling atmospheric shot of a book beside a flickering candle, with a prominent literary quote overlaid in white text \u2014 no voiceover, no cuts, pure mood."
       },
       script_direction: {
-        narrative_style: "voiceover_narration",
-        narrative_voice: "casual_gen_z",
+        narrative_style: "text_only",
+        narrative_voice: "other",
         hook_strategy: "visceral_scenario",
-        segment_pacing: "slow_build_fast_end",
-        overlay_text_style: "short_punchy",
+        segment_pacing: "even",
+        overlay_text_style: "full_sentence",
         caption_style: "emotional_with_hashtags",
         content_rules: [
-          "ENTIRE video is 10-12 seconds",
-          "Open with creator holding the book confidently, smiling or neutral",
-          "Cut immediately to creator visibly crying, clutching the book — raw emotional devastation",
-          "Voiceover should be candid and unscripted-sounding",
-          "Book cover must be visible in both 'before' and 'after' shots",
-          "Keep voiceover short and raw — under 20 words total"
+          "ENTIRE video is 10 seconds \u2014 single atmospheric clip with no cuts",
+          "Display one emotionally resonant quote from the book in large white serif-style text in the upper-left quadrant",
+          "Quote should be 2\u20134 lines max, followed by an em-dash attribution line",
+          "No voiceover \u2014 the quote IS the content; let it breathe for the full duration",
+          "The book's cover must be visible and legible in the lower half of the frame",
+          "A lit candle must appear beside the book to create warm practical lighting",
+          "Dark, moody background reinforces the atmospheric tone",
+          "Choose a quote that feels emotionally gut-punch worthy"
         ]
       },
       visual_direction: {
-        image_style_prefix: "Vertical smartphone selfie style, close-up portrait of a young woman holding a book, bright natural daylight or softly lit indoor bookshelf background, candid and unfiltered feel, slight handheld camera shake, warm skin tones, authentic emotional expression, no filters or artificial polish",
-        color_mood: "soft_warm",
-        color_palette_hint: ["#F5E6D3", "#E8C4B8", "#D4A5A0", "#F0F0F0"],
-        image_types: ["person_with_book", "hands_with_book"],
+        image_style_prefix: "Cinematic dark academia flatlay, shot from a slight low angle looking across a dark wooden surface. A paperback book leans diagonally against a surface, its cover facing the camera. A small glowing tealight candle in an amber glass holder sits beside it, casting warm orange and amber light across the scene. Deep shadows fill the upper background. Moody, intimate, candlelit atmosphere. Portrait orientation, photorealistic.",
+        color_mood: "dark_cozy",
+        color_palette_hint: ["#1a0f0a", "#3d1f0d", "#c8601a", "#e8a040", "#2a2a3a"],
+        image_types: ["book_on_surface", "flatlay", "atmospheric"],
         clip_duration: 10
       },
       audio_direction: {
-        has_voiceover: true,
-        voice_gender: "female",
-        voice_tone: "casual_chatty",
-        has_music: false,
-        music_mood: "romantic_soft",
-        music_genre: "soft indie pop",
-        music_volume: 0.4
+        has_voiceover: false,
+        voice_gender: null,
+        voice_tone: "warm_friendly",
+        has_music: true,
+        music_mood: "dark_ambient",
+        music_genre: "ambient atmospheric",
+        music_volume: 0.6
       }
     },
     script: {
       creative_brief: {
-        style: "Raw Emotional Contrast Reaction",
-        style_rationale: "The stark before/after format perfectly mirrors the book's own brutal contrast — Leni's naive hope before Alaska vs. the survival nightmare she faces.",
-        tone: "Devastated, raw, quietly wrecked — like someone who thought they were ready and absolutely was not",
-        target_hook: "The visual whiplash of a confident smile cutting instantly to full emotional collapse — the contrast IS the scroll-stop moment",
-        music_direction: "Soft indie folk, ~80 BPM, sparse acoustic guitar or piano"
+        style: "Dark Academia Atmospheric Quote Card",
+        style_rationale: "The candlelit flatlay format mirrors the book's liminal, between-worlds tension \u2014 the candle flame itself embodies Feeney's 'half dark' imagery.",
+        tone: "Hushed, melancholic, eerie \u2014 the feeling of standing in a doorway between two versions of your life",
+        target_hook: "A quote so quietly unsettling it makes readers pause mid-scroll and read it twice",
+        music_direction: "Slow ambient atmospheric, ~70 BPM \u2014 sparse piano or bowed strings, low drone underneath, no percussion"
       },
-      total_duration_seconds: 9,
+      total_duration_seconds: 10,
       segments: [
         {
           segment_number: 1,
           start_time: 0.0,
-          end_time: 4.0,
-          voiceover_text: "okay so... this is me before starting The Great Alone. Alaska sounds kinda cool, right?",
-          voice_direction: "Casual, slightly playful — unbothered, maybe a tiny smirk. Zero idea what's coming.",
-          overlay_text: "before The Great Alone"
-        },
-        {
-          segment_number: 2,
-          start_time: 4.0,
-          end_time: 9.0,
-          voiceover_text: "[crying] I can't... Leni didn't deserve any of that. [voice breaking] I literally have no thoughts.",
-          voice_direction: "Completely wrecked. Voice cracking, trailing off into silence.",
-          overlay_text: "she didn't deserve that"
+          end_time: 10.0,
+          voiceover_text: null,
+          voice_direction: null,
+          overlay_text: "\u201CThe half dark is my happy place. That thin sliver of time that separates night from day, and day from night. Twilight. Sunset. Nightfall.\u201D\n\u2014 Alice Feeney, My Husband\u2019s Wife"
         }
       ],
-      caption: "kristin hannah said let me ruin your entire week \u{1F940} the alaska winter is nothing compared to what this book does to your heart #TheGreatAlone #KristinHannah #BookTok #BookTokCry #FictionTok #CryingOverBooks",
-      cta: "drop a \u{1F43A} if this book absolutely wrecked you too"
+      caption: "that sliver between knowing and not knowing \u{1F56F}\uFE0F this book lives in the half dark and it will not let you go. comment the last book that gave you that eerie, can\u2019t-put-it-down feeling \u{1F447} #booktok #psychologicalthriller #myhusbandswifeBook #alicefeeney #darkacademia #thrillerbooks",
+      cta: "Comment the last book that gave you that eerie, can\u2019t-put-it-down feeling \u{1F447}"
     }
   },
 
@@ -207,27 +201,27 @@ export const demoVideos = [
     }
   },
 
-  // ── Wedding People — Gift Wrapping POV ────────────────────────────
+  // ── Wedding People — Reading Reaction Flip to CTA ─────────────────
   {
-    id: "macmillan_twp",
+    id: "wedding_people_v2",
     reference: {
-      title: "POV: wrapping the perfect gift for a book lover",
+      title: "Reading about a woman who crashes a stranger's wedding weekend",
       creator: "@macmillanpublishers",
-      tiktokUrl: "https://www.tiktok.com/@macmillanpublishers/video/7586447704532815117",
-      thumbnail: "/thumbnails/wedding_people_ref.jpg",
+      tiktokUrl: "https://www.tiktok.com/@macmillanpublishers/video/7599673685514964254",
+      thumbnail: "/thumbnails/wedding_people_v2_ref.jpg",
       views: "890K",
       likes: "198K",
       comments: "2.1K",
       shares: "14.5K",
       analysis: {
-        name: "Book Gift Wrapping POV",
-        description: "A satisfying POV gift-wrapping video showing a book being wrapped in festive paper with cozy holiday aesthetic.",
-        narrative_style: "POV Hook",
-        duration_seconds: 10,
-        content_analysis: "Satisfying gift-wrap POV content bridges BookTok and craft TikTok, driving high save rates. The cozy holiday aesthetic and product showcase format makes it perfect for driving purchase intent.",
-        genre_topic: "Literary Fiction / Gift Content",
-        visual_direction: "Overhead hands-only POV, warm natural daylight, red and cream botanical wrapping paper, cozy holiday home setting",
-        hook_strategy: "Visceral Scenario — Satisfying visual experience drives saves and shares"
+        name: "Reading Reaction Flip to CTA",
+        description: "A two-beat BookTok format where the first half shows a person reacting with delight while reading the book (with a punchy content hook as overlay text), then cuts to hands flipping through the book's interior pages with a direct CTA overlay.",
+        narrative_style: "Text Only",
+        duration_seconds: 9,
+        content_analysis: "The two-beat structure hooks with a relatable reading discovery moment, then pivots to a direct CTA with urgency — combining organic BookTok energy with clear purchase intent.",
+        genre_topic: "Literary Fiction / Women's Fiction",
+        visual_direction: "Bright, naturally lit interior, cozy couch reading setup, then close-up hands flipping through pages, warm clean color grading",
+        hook_strategy: "Visceral Scenario — Curiosity-sparking book content description hooks the viewer"
       }
     },
     book: {
@@ -240,68 +234,77 @@ export const demoVideos = [
       genre: "Literary Fiction / Women's Fiction",
       description: "When Phoebe Stone arrives at the grand Cornwall Inn determined to have one last decadent splurge, she's mistaken for one of the wedding people. An unlikely friendship with the bride changes everything.",
       bookTokAppeal: "The perfect gift book — themes of self-worth, female friendship, and treating yourself resonate deeply with BookTok's core audience.",
-      color: "#C8372D"
+      color: "#7B5EA7"
     },
-    videoPath: "/videos/macmillan_twp_final.mp4",
+    videoPath: "/videos/wedding_people_v2_final.mp4",
     formatSpec: {
       format_meta: {
-        name: "book_gift_wrapping_pov",
-        description: "A satisfying POV gift-wrapping video showing a book being wrapped in festive paper with cozy holiday aesthetic."
+        name: "reading_reaction_flip_to_cta",
+        description: "A two-beat BookTok format where the first half shows a person reacting with delight while reading the book (with a punchy content hook as overlay text), then cuts to hands flipping through the book's interior pages with a direct CTA overlay."
       },
       script_direction: {
-        narrative_style: "pov_hook",
-        narrative_voice: "warm_friendly",
+        narrative_style: "text_only",
+        narrative_voice: "casual_excited",
         hook_strategy: "visceral_scenario",
         segment_pacing: "slow_build_fast_end",
         overlay_text_style: "full_sentence",
         caption_style: "pov_with_hashtags",
         content_rules: [
-          "Single 10-second clip — one continuous shot, no cuts",
-          "Open with hook overlay text: 'POV: wrapping the perfect gift for a book lover'",
-          "Show the book prominently — let the cover shine",
-          "Overhead/close-up POV of hands wrapping the book in festive paper",
-          "Hands with red nails and jewelry visible — no face shown",
-          "Red and cream/kraft holiday wrapping paper throughout"
+          "ENTIRE video is 10-12 seconds \u2014 no exceptions",
+          "First overlay text describes a specific, intriguing thing the reader is discovering in the book",
+          "Hook text should list 2-3 specific, curiosity-sparking benefits or topics from the book using casual, relatable language",
+          "Second overlay text transitions to a direct purchase CTA",
+          "No voiceover \u2014 text overlays carry the entire message",
+          "Reaction shot of person genuinely engaged with the book anchors the hook segment",
+          "Hands flipping through interior pages anchors the CTA segment"
         ]
       },
       visual_direction: {
-        image_style_prefix: "Overhead hands-only POV video of gift wrapping a book on a light wood-grain table surface, warm natural daylight, red and cream botanical-print wrapping paper with holly and pinecones, red manicured nails and delicate gold jewelry visible, satisfying ASMR aesthetic, soft warm ambient light, no face shown, cozy holiday home setting",
-        color_mood: "warm_cozy",
-        color_palette_hint: ["#C8372D", "#E8D5B0", "#D4C4A0", "#8B6914", "#F5F0E8"],
-        image_types: ["hands_with_book", "flatlay", "book_on_surface", "atmospheric"],
+        image_style_prefix: "Bright, naturally lit interior setting \u2014 soft daylight from a nearby window, neutral walls, cozy couch or chair. Person in casual everyday clothes reading a visually distinctive hardcover book, shot in a relaxed medium full-body framing. Second scene: close-up of hands holding and slowly fanning through the open pages of the book. Candid, unpolished aesthetic \u2014 feels like a genuine personal discovery moment, not a staged ad. Warm but clean color grading.",
+        color_mood: "soft_warm",
+        color_palette_hint: ["#F5EFE6", "#D4C5B2", "#7B5EA7", "#FFFFFF"],
+        image_types: ["person_with_book", "hands_with_book"],
         clip_duration: 10
       },
       audio_direction: {
         has_voiceover: false,
         voice_gender: null,
-        voice_tone: "warm_friendly",
+        voice_tone: "casual_chatty",
         has_music: true,
-        music_mood: "warm_cozy",
-        music_genre: "soft acoustic holiday pop",
+        music_mood: "trending_soft",
+        music_genre: "upbeat indie pop / witchy lo-fi",
         music_volume: 0.6
       }
     },
     script: {
       creative_brief: {
-        style: "Cozy Holiday POV Gift Wrap \u2014 Warm Feminine Aesthetic",
-        style_rationale: "The satisfying gift-wrap POV format mirrors the book's themes of self-gifting and indulgence.",
-        tone: "Warm, intimate, quietly emotional \u2014 like wrapping something that means more than just a book",
-        target_hook: "POV: wrapping the perfect gift for a book lover",
-        music_direction: "Soft acoustic holiday pop at ~90 BPM — gentle fingerpicked guitar with subtle jingle bell undertone"
+        style: "cozy-literary-escape with emotional gut-punch",
+        style_rationale: "The Wedding People blends wedding-weekend whimsy with a quietly devastating emotional undercurrent \u2014 the visual style should feel warm and inviting on the surface, with a hint of something bittersweet underneath.",
+        tone: "wistful but hopeful, conspiratorial, emotionally resonant",
+        target_hook: "She checked into a wedding hotel alone \u2014 on purpose \u2014 and it changed everything",
+        music_direction: "Upbeat indie pop with a slightly melancholic undertone, ~100 BPM \u2014 dreamy acoustic guitar with soft percussion"
       },
-      total_duration_seconds: 10,
+      total_duration_seconds: 9,
       segments: [
         {
           segment_number: 1,
           start_time: 0.0,
-          end_time: 10.0,
+          end_time: 5.0,
           voiceover_text: null,
           voice_direction: null,
-          overlay_text: "POV: wrapping the perfect gift for a book lover"
+          overlay_text: "Reading about a woman who crashes a stranger\u2019s wedding weekend to save her own life \u2728"
+        },
+        {
+          segment_number: 2,
+          start_time: 5.0,
+          end_time: 9.0,
+          voiceover_text: null,
+          voice_direction: null,
+          overlay_text: "This is your sign to get The Wedding People while it\u2019s on sale! \u{1F49C}"
         }
       ],
-      caption: "she deserves this one \u{1F381}\u2728 The Wedding People by Alison Espach \u2014 the perfect gift for the woman who needs a reminder she's enough. linked in bio \u{1F48C} #BookTok #GiftWrapping #BookGift #TheWeddingPeople #BookTokGifts #CozyReads #HolidayBooks",
-      cta: "Tap the link in bio to get your copy \u2014 makes the most beautiful gift \u{1F380}"
+      caption: "she showed up to a wedding hotel ALONE with no bags and a plan \u{1F62D}\u2728 this book wrecked me in the best way #BookTok #TheWeddingPeople #AlisonEspach #FictionReads #BookRecommendation #ReadingTok",
+      cta: "Grab The Wedding People while it\u2019s on sale \u2014 link in bio! \u{1F49C}"
     }
   }
 ];

@@ -1,37 +1,29 @@
 // Trending BookTok videos data — top 3 are our demo references with demoId links
-// parseViews helper for engagement tier calculation
-export function parseViews(viewStr) {
-  const num = parseFloat(viewStr);
-  if (viewStr.includes('M')) return num * 1_000_000;
-  if (viewStr.includes('K')) return num * 1_000;
-  return num;
-}
-
 export const trendingVideos = [
   // ── Demo references (linked to demoVideos.js) ────────────────────
   {
     id: 1,
     rank: 1,
-    demoId: "kristin_hannah_v1",
-    title: "Before vs after reading this book",
-    creator: "@yannareads",
-    tiktokUrl: "https://www.tiktok.com/@yannareads/video/7510655432021577006",
-    videoSrc: "/videos/kristin_hannah_v1_final.mp4",
-    thumbnail: "/thumbnails/kristin_hannah_ref.jpg",
+    demoId: "husbands_wife_v1",
+    title: "Candlelit book quote card",
+    creator: "@macmillanpublishers",
+    tiktokUrl: "https://www.tiktok.com/@macmillanpublishers/video/7567397377993215262",
+    videoSrc: "/videos/husbands_wife_v1_final.mp4",
+    thumbnail: "/thumbnails/husbands_wife_v1_ref.jpg",
     views: "2.1M",
     likes: "487K",
     comments: "5.8K",
     shares: "22.3K",
     postedDate: "2 days ago",
     analysis: {
-      name: "Before/After Crying BookTok",
-      description: "A two-part reaction format showing the creator confidently holding a book before starting it, then cutting to them visibly emotional and crying while clutching the same book after reading it.",
-      narrative_style: "Voiceover Narration",
+      name: "Candlelit Book Quote Card",
+      description: "A single static-feeling atmospheric shot of a book beside a flickering candle, with a prominent literary quote overlaid in white text \u2014 no voiceover, no cuts, pure mood.",
+      narrative_style: "Text Only",
       duration_seconds: 10,
-      content_analysis: "The stark before/after contrast is one of BookTok's most viral formats. The emotional gut-punch relies entirely on the visual whiplash between composed confidence and raw devastation — no explanation needed.",
-      genre_topic: "Literary Fiction / Emotional",
-      visual_direction: "Vertical smartphone selfie style, close-up portrait, bright natural daylight, candid and unfiltered feel, warm skin tones, authentic emotional expression",
-      hook_strategy: "Visceral Scenario — The contrast between composed before and destroyed after IS the hook"
+      content_analysis: "The dark academia candlelit aesthetic taps into BookTok's love of moody atmospheric content. A gut-punch quote does all the selling \u2014 viewers pause, reread, and save. High save-to-view ratio format.",
+      genre_topic: "Psychological Thriller",
+      visual_direction: "Cinematic dark academia flatlay, dark wooden surface, amber tealight candle, deep shadows, moody candlelit atmosphere, portrait orientation",
+      hook_strategy: "Visceral Scenario \u2014 A quote so unsettling it makes readers pause mid-scroll"
     }
   },
   {
@@ -62,30 +54,30 @@ export const trendingVideos = [
   {
     id: 3,
     rank: 3,
-    demoId: "macmillan_twp",
-    title: "POV: wrapping the perfect gift for a book lover",
+    demoId: "wedding_people_v2",
+    title: "Reading about a woman who crashes a stranger's wedding weekend",
     creator: "@macmillanpublishers",
-    tiktokUrl: "https://www.tiktok.com/@macmillanpublishers/video/7586447704532815117",
-    videoSrc: "/videos/macmillan_twp_final.mp4",
-    thumbnail: "/thumbnails/wedding_people_ref.jpg",
+    tiktokUrl: "https://www.tiktok.com/@macmillanpublishers/video/7599673685514964254",
+    videoSrc: "/videos/wedding_people_v2_final.mp4",
+    thumbnail: "/thumbnails/wedding_people_v2_ref.jpg",
     views: "890K",
     likes: "198K",
     comments: "2.1K",
     shares: "14.5K",
     postedDate: "5 days ago",
     analysis: {
-      name: "Book Gift Wrapping POV",
-      description: "A satisfying POV gift-wrapping video showing a book being wrapped in festive paper with cozy holiday aesthetic.",
-      narrative_style: "POV Hook",
-      duration_seconds: 10,
-      content_analysis: "Satisfying gift-wrap POV content bridges BookTok and craft TikTok, driving high save rates. The cozy holiday aesthetic and product showcase format makes it perfect for driving purchase intent.",
-      genre_topic: "Literary Fiction / Gift Content",
-      visual_direction: "Overhead hands-only POV, warm natural daylight, red and cream botanical wrapping paper, cozy holiday home setting",
-      hook_strategy: "Visceral Scenario — Satisfying visual experience drives saves and shares"
+      name: "Reading Reaction Flip to CTA",
+      description: "A two-beat BookTok format where the first half shows a person reacting with delight while reading the book (with a punchy content hook as overlay text), then cuts to hands flipping through the book's interior pages with a direct CTA overlay.",
+      narrative_style: "Text Only",
+      duration_seconds: 9,
+      content_analysis: "The two-beat structure hooks with a relatable reading discovery moment, then pivots to a direct CTA with urgency — combining organic BookTok energy with clear purchase intent.",
+      genre_topic: "Literary Fiction / Women's Fiction",
+      visual_direction: "Bright, naturally lit interior, cozy couch reading setup, then close-up hands flipping through pages, warm clean color grading",
+      hook_strategy: "Visceral Scenario — Curiosity-sparking book content description hooks the viewer"
     }
   },
 
-  // ── High engagement (1M+ views) ──────────────────────────────────
+  // ── Additional trending videos for carousel ─────────────────────
   {
     id: 4,
     rank: 4,
@@ -182,8 +174,6 @@ export const trendingVideos = [
       hook_strategy: "Social Proof — Retailer authority creates urgency and trust"
     }
   },
-
-  // ── Medium engagement (400K–999K views) ───────────────────────────
   {
     id: 8,
     rank: 8,
@@ -230,296 +220,6 @@ export const trendingVideos = [
       genre_topic: "Mixed Genre / Book Recommendations",
       visual_direction: "Cozy aesthetic with book reveals, warm lighting, genuine enthusiasm.",
       hook_strategy: "Warm Authority — Genuine enthusiasm and personal touch drives trust and saves"
-    }
-  },
-  {
-    id: 10,
-    rank: 10,
-    title: "Dark academia aesthetic shelf tour #darkacademia",
-    creator: "@marbledpages",
-    tiktokUrl: "https://www.tiktok.com/@marbledpages/video/7200000000000000001",
-    videoSrc: "/videos/booktok_final.mp4",
-    thumbnail: "/thumbnails/video1.jpg",
-    views: "540K",
-    likes: "124K",
-    comments: "1.6K",
-    shares: "9.1K",
-    postedDate: "3 days ago",
-    analysis: {
-      name: "Dark Academia Shelf Tour",
-      description: "Atmospheric bookshelf tour showcasing classic literature and gothic aesthetics with moody candlelight ambiance.",
-      narrative_style: "Visual Tour / ASMR",
-      duration_seconds: 12,
-      content_analysis: "Dark academia is a thriving BookTok aesthetic sub-niche. Shelf tours drive aspiration and product discovery.",
-      genre_topic: "Classic Literature / Dark Academia",
-      visual_direction: "Low candlelight, leather-bound books, dark wood shelves, warm amber tones, slow panning shots.",
-      hook_strategy: "Aesthetic Pull — Moody atmosphere draws viewers into aspirational reading lifestyle"
-    }
-  },
-  {
-    id: 11,
-    rank: 11,
-    title: "Books that made me UGLY CRY #cryingbooktok",
-    creator: "@emilywrites_",
-    tiktokUrl: "https://www.tiktok.com/@emilywrites_/video/7200000000000000002",
-    videoSrc: "/videos/booktok_final.mp4",
-    thumbnail: "/thumbnails/video2.jpg",
-    views: "480K",
-    likes: "112K",
-    comments: "2.3K",
-    shares: "7.8K",
-    postedDate: "5 days ago",
-    analysis: {
-      name: "Ugly Cry Book Recs",
-      description: "Emotional book recommendation listicle centered on books that evoke intense emotional reactions.",
-      narrative_style: "Personal Recommendation / Emotional",
-      duration_seconds: 11,
-      content_analysis: "Emotional vulnerability content consistently outperforms polished recommendations on BookTok.",
-      genre_topic: "Emotional Fiction / Tearjerkers",
-      visual_direction: "Close-up face cam, genuine emotional delivery, cozy blanket setup.",
-      hook_strategy: "Emotional Authenticity — Vulnerability creates instant connection"
-    }
-  },
-  {
-    id: 12,
-    rank: 12,
-    title: "Cozy reading routine ASMR #cozybooktok",
-    creator: "@quietpagesasmr",
-    tiktokUrl: "https://www.tiktok.com/@quietpagesasmr/video/7200000000000000003",
-    videoSrc: "/videos/booktok_final.mp4",
-    thumbnail: "/thumbnails/video3.jpg",
-    views: "430K",
-    likes: "98K",
-    comments: "890",
-    shares: "6.2K",
-    postedDate: "4 days ago",
-    analysis: {
-      name: "Cozy Reading ASMR",
-      description: "Satisfying ASMR reading routine with page turning sounds, tea pouring, and blanket setup.",
-      narrative_style: "ASMR / Routine",
-      duration_seconds: 15,
-      content_analysis: "ASMR reading content bridges the ASMR and BookTok communities, expanding reach significantly.",
-      genre_topic: "Reading Lifestyle / ASMR",
-      visual_direction: "Soft overhead lighting, knit textures, steaming mug, slow deliberate movements.",
-      hook_strategy: "Sensory Immersion — ASMR triggers create compulsive viewing and saves"
-    }
-  },
-
-  // ── Lower engagement (under 400K views) ───────────────────────────
-  {
-    id: 13,
-    rank: 13,
-    title: "The movie was NOTHING like the book",
-    creator: "@readwatchcompare",
-    tiktokUrl: "https://www.tiktok.com/@readwatchcompare/video/7200000000000000004",
-    videoSrc: "/videos/booktok_final.mp4",
-    thumbnail: "/thumbnails/video8.jpg",
-    views: "380K",
-    likes: "87K",
-    comments: "3.4K",
-    shares: "5.5K",
-    postedDate: "1 week ago",
-    analysis: {
-      name: "Book vs Movie Hot Take",
-      description: "Passionate comparison between a book and its film adaptation highlighting key differences.",
-      narrative_style: "Hot Take / Debate",
-      duration_seconds: 13,
-      content_analysis: "Book-to-movie debates drive extremely high comment engagement and shares.",
-      genre_topic: "Book Adaptations / Opinion",
-      visual_direction: "Split screen comparison, expressive reactions, book and movie poster props.",
-      hook_strategy: "Controversy Hook — Divisive take drives comments and debate"
-    }
-  },
-  {
-    id: 14,
-    rank: 14,
-    title: "My March TBR is out of control #tbr",
-    creator: "@pagestackss",
-    tiktokUrl: "https://www.tiktok.com/@pagestackss/video/7200000000000000005",
-    videoSrc: "/videos/booktok_final.mp4",
-    thumbnail: "/thumbnails/video9.jpg",
-    views: "320K",
-    likes: "76K",
-    comments: "1.1K",
-    shares: "4.8K",
-    postedDate: "2 days ago",
-    analysis: {
-      name: "Monthly TBR Stack Reveal",
-      description: "Creator reveals a towering stack of books planned for the month with brief commentary on each.",
-      narrative_style: "Listicle / Haul",
-      duration_seconds: 14,
-      content_analysis: "TBR reveals create anticipation and community participation. Viewers love sharing their own TBR lists.",
-      genre_topic: "Mixed Genre / TBR Culture",
-      visual_direction: "Overhead book stack reveal, each title shown individually, cozy desk setup.",
-      hook_strategy: "Community Participation — Viewers engage by sharing their own TBR"
-    }
-  },
-  {
-    id: 15,
-    rank: 15,
-    title: "Romance tropes tier list #romancebooktok",
-    creator: "@tropequeen",
-    tiktokUrl: "https://www.tiktok.com/@tropequeen/video/7200000000000000006",
-    videoSrc: "/videos/booktok_final.mp4",
-    thumbnail: "/thumbnails/video11.jpg",
-    views: "290K",
-    likes: "68K",
-    comments: "4.1K",
-    shares: "3.9K",
-    postedDate: "5 days ago",
-    analysis: {
-      name: "Romance Tropes Tier List",
-      description: "Ranking popular romance tropes from S-tier to F-tier with passionate justification for each.",
-      narrative_style: "Tier List / Debate",
-      duration_seconds: 15,
-      content_analysis: "Tier lists are engagement gold — every viewer has a strong opinion on trope rankings.",
-      genre_topic: "Romance / Tropes",
-      visual_direction: "Screen recording of tier list tool, face cam reactions, colorful graphics.",
-      hook_strategy: "Debate Catalyst — Controversial rankings drive massive comment engagement"
-    }
-  },
-  {
-    id: 16,
-    rank: 16,
-    title: "Annotating my favorite book of all time",
-    creator: "@inkedmargins",
-    tiktokUrl: "https://www.tiktok.com/@inkedmargins/video/7200000000000000007",
-    videoSrc: "/videos/booktok_final.mp4",
-    thumbnail: "/thumbnails/video5.jpg",
-    views: "240K",
-    likes: "58K",
-    comments: "780",
-    shares: "3.2K",
-    postedDate: "3 days ago",
-    analysis: {
-      name: "Book Annotation ASMR",
-      description: "Satisfying annotation session with colorful tabs, underlining, and margin notes in a beloved novel.",
-      narrative_style: "ASMR / Process",
-      duration_seconds: 12,
-      content_analysis: "Annotation content satisfies the craft and stationery communities while promoting reading.",
-      genre_topic: "Reading Lifestyle / Annotation",
-      visual_direction: "Close-up hands, colorful tabs and pens, crisp page sounds, overhead angle.",
-      hook_strategy: "Satisfying Process — Visual ASMR of annotation keeps viewers watching"
-    }
-  },
-  {
-    id: 17,
-    rank: 17,
-    title: "Blind date with a book unboxing #blinddate",
-    creator: "@mysteryreader",
-    tiktokUrl: "https://www.tiktok.com/@mysteryreader/video/7200000000000000008",
-    videoSrc: "/videos/booktok_final.mp4",
-    thumbnail: "/thumbnails/video6.jpg",
-    views: "210K",
-    likes: "49K",
-    comments: "920",
-    shares: "2.8K",
-    postedDate: "6 days ago",
-    analysis: {
-      name: "Blind Date Book Unboxing",
-      description: "Unwrapping a mystery wrapped book purchased from a bookstore's 'blind date with a book' display.",
-      narrative_style: "Unboxing / Reveal",
-      duration_seconds: 11,
-      content_analysis: "Mystery and anticipation drive completion rates. The reveal moment creates shareable reactions.",
-      genre_topic: "Mixed Genre / Unboxing",
-      visual_direction: "Close-up unwrapping, kraft paper and twine, suspenseful reveal, genuine reaction.",
-      hook_strategy: "Curiosity Gap — What's inside the mystery wrap keeps viewers watching until reveal"
-    }
-  },
-  {
-    id: 18,
-    rank: 18,
-    title: "Indie bookstore haul under $50",
-    creator: "@localbookworm",
-    tiktokUrl: "https://www.tiktok.com/@localbookworm/video/7200000000000000009",
-    videoSrc: "/videos/booktok_final.mp4",
-    thumbnail: "/thumbnails/video4.jpg",
-    views: "180K",
-    likes: "42K",
-    comments: "650",
-    shares: "2.4K",
-    postedDate: "4 days ago",
-    analysis: {
-      name: "Budget Indie Bookstore Haul",
-      description: "Showcasing book purchases from an independent bookstore with a $50 budget constraint.",
-      narrative_style: "Haul / Budget Challenge",
-      duration_seconds: 14,
-      content_analysis: "Budget constraint hauls are relatable and promote indie bookstore discovery.",
-      genre_topic: "Bookstore Culture / Budget",
-      visual_direction: "In-store browsing footage, book reveals at home, price tags shown, warm tones.",
-      hook_strategy: "Relatable Challenge — Budget constraint makes content accessible and engaging"
-    }
-  },
-  {
-    id: 19,
-    rank: 19,
-    title: "Books with the BEST plot twists #thriller",
-    creator: "@twistednovelis",
-    tiktokUrl: "https://www.tiktok.com/@twistednovelis/video/7200000000000000010",
-    videoSrc: "/videos/booktok_final.mp4",
-    thumbnail: "/thumbnails/video7.jpg",
-    views: "155K",
-    likes: "36K",
-    comments: "1.4K",
-    shares: "2.1K",
-    postedDate: "1 week ago",
-    analysis: {
-      name: "Best Plot Twist Recs",
-      description: "Curated thriller recommendations focused exclusively on books with jaw-dropping plot twists.",
-      narrative_style: "Listicle / Recommendation",
-      duration_seconds: 13,
-      content_analysis: "Plot twist recommendations are evergreen BookTok content that drives saves and shares.",
-      genre_topic: "Thriller / Mystery",
-      visual_direction: "Dramatic lighting, book reveals with suspenseful pauses, dark moody aesthetic.",
-      hook_strategy: "Promise of Payoff — Twist-focused framing guarantees satisfying reading experience"
-    }
-  },
-  {
-    id: 20,
-    rank: 20,
-    title: "Reading journal setup for beginners",
-    creator: "@journalpages",
-    tiktokUrl: "https://www.tiktok.com/@journalpages/video/7200000000000000011",
-    videoSrc: "/videos/booktok_final.mp4",
-    thumbnail: "/thumbnails/video12.jpg",
-    views: "130K",
-    likes: "31K",
-    comments: "540",
-    shares: "1.8K",
-    postedDate: "5 days ago",
-    analysis: {
-      name: "Reading Journal Setup",
-      description: "Step-by-step guide to setting up a reading journal with templates, stickers, and tracking pages.",
-      narrative_style: "Tutorial / Process",
-      duration_seconds: 15,
-      content_analysis: "Reading journal content bridges stationery and BookTok communities. High save rates.",
-      genre_topic: "Reading Lifestyle / Journaling",
-      visual_direction: "Overhead desk setup, colorful stationery, neat handwriting, satisfying layouts.",
-      hook_strategy: "Aspirational Process — Beautiful journal setup inspires viewers to start their own"
-    }
-  },
-  {
-    id: 21,
-    rank: 21,
-    title: "Enemies to lovers recs that DELIVER",
-    creator: "@smuttybookclub",
-    tiktokUrl: "https://www.tiktok.com/@smuttybookclub/video/7200000000000000012",
-    videoSrc: "/videos/booktok_final.mp4",
-    thumbnail: "/thumbnails/video10.jpg",
-    views: "120K",
-    likes: "28K",
-    comments: "1.8K",
-    shares: "1.5K",
-    postedDate: "3 days ago",
-    analysis: {
-      name: "Enemies to Lovers Recs",
-      description: "Passionate recommendation of romance novels featuring the beloved enemies-to-lovers trope.",
-      narrative_style: "Personal Recommendation",
-      duration_seconds: 12,
-      content_analysis: "Enemies to lovers is the most requested romance trope on BookTok. Targeted niche content.",
-      genre_topic: "Romance / Enemies to Lovers",
-      visual_direction: "Expressive face cam, books fanned out, dramatic hand gestures, warm pink-toned lighting.",
-      hook_strategy: "Niche Passion — Hyper-specific trope targeting attracts devoted romance readers"
     }
   }
 ];
