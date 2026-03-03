@@ -2,9 +2,11 @@ import { useState, useCallback, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
 import StepIndicator from './components/StepIndicator';
+import WorkflowTabs from './components/WorkflowTabs';
 import TrendingVideos from './components/TrendingVideos';
 import Configuration from './components/Configuration';
 import GeneratedVideo from './components/GeneratedVideo';
+import PromptWorkflow from './components/PromptWorkflow';
 import { getDemoVideoById } from './data/demoVideos';
 import './App.css';
 
@@ -15,6 +17,7 @@ const STEPS = [
 ];
 
 function App() {
+  const [workflow, setWorkflow] = useState('trend');
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [demoVideo, setDemoVideo] = useState(null);
@@ -33,7 +36,17 @@ function App() {
   // Scroll to top on step change
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [currentStep]);
+  }, [currentStep, workflow]);
+
+  const handleWorkflowSwitch = useCallback((wf) => {
+    setWorkflow(wf);
+    // Reset trend flow state when switching away
+    if (wf !== 'trend') {
+      setCurrentStep(1);
+      setSelectedVideo(null);
+      setDemoVideo(null);
+    }
+  }, []);
 
   const handleVideoSelect = useCallback((video) => {
     setSelectedVideo(video);
@@ -63,16 +76,19 @@ function App() {
     <div className="app">
       <div className="app-bg" />
       <Header onReset={handleReset} theme={theme} onToggleTheme={toggleTheme} />
-      <StepIndicator steps={STEPS} currentStep={currentStep} />
+      <WorkflowTabs activeWorkflow={workflow} onSwitch={handleWorkflowSwitch} />
+      {workflow === 'trend' && (
+        <StepIndicator steps={STEPS} currentStep={currentStep} />
+      )}
       <main className="main-content">
         <AnimatePresence mode="wait">
-          {currentStep === 1 && (
+          {workflow === 'trend' && currentStep === 1 && (
             <TrendingVideos
               key="trending"
               onSelectVideo={handleVideoSelect}
             />
           )}
-          {currentStep === 2 && (
+          {workflow === 'trend' && currentStep === 2 && (
             <Configuration
               key="config"
               selectedVideo={selectedVideo}
@@ -81,7 +97,7 @@ function App() {
               onBack={handleBack}
             />
           )}
-          {currentStep === 3 && (
+          {workflow === 'trend' && currentStep === 3 && (
             <GeneratedVideo
               key="generated"
               selectedVideo={selectedVideo}
@@ -89,6 +105,9 @@ function App() {
               onReset={handleReset}
               onBack={handleBack}
             />
+          )}
+          {workflow === 'prompt' && (
+            <PromptWorkflow key="prompt-workflow" />
           )}
         </AnimatePresence>
       </main>
