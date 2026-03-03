@@ -540,6 +540,32 @@ export default function PromptWorkflow() {
               </p>
             </div>
 
+            {/* Concept Tabs */}
+            <div className="concept-tabs">
+              <div className="concept-tabs-inner">
+                {concepts.map((concept, i) => (
+                  <button
+                    key={concept.id}
+                    className={`concept-tab ${i === activeConceptIndex ? 'active' : ''}`}
+                    onClick={() => setActiveConceptIndex(i)}
+                  >
+                    <span className="concept-tab-number">{i + 1}</span>
+                    <span className="concept-tab-name">{concept.name}</span>
+                    {!concept.videoPath && (
+                      <span className="concept-tab-badge">Coming Soon</span>
+                    )}
+                    {i === activeConceptIndex && (
+                      <motion.div
+                        className="concept-tab-underline"
+                        layoutId="video-concept-underline"
+                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                      />
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <AnimatePresence mode="wait">
               {hasVideo ? (
                 <motion.div
