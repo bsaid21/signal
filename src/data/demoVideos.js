@@ -2,103 +2,112 @@
 // Each entry contains everything needed to populate all 3 steps of the demo wizard
 
 export const demoVideos = [
-  // ── My Husband's Wife — Candlelit Book Quote Card ─────────────────
+  // ── Once Upon a Broken Heart — Intimate Romantic Tension ──────────
   {
-    id: "husbands_wife_v1",
+    id: "broken_heart_v1",
     reference: {
-      title: "Candlelit book quote card",
-      creator: "@macmillanpublishers",
-      tiktokUrl: "https://www.tiktok.com/@macmillanpublishers/video/7567397377993215262",
-      thumbnail: "/thumbnails/husbands_wife_v1_ref.jpg",
-      views: "2.1M",
-      likes: "487K",
-      comments: "5.8K",
-      shares: "22.3K",
+      title: "Just finished Fourth Wing and WOW",
+      creator: "@digitaldreamstories",
+      tiktokUrl: "https://www.tiktok.com/@digitaldreamstories/video/7443103396216933634",
+      thumbnail: "/thumbnails/broken_heart_v1_ref.jpg",
+      views: "3.2M",
+      likes: "392.4K",
+      comments: "3.8K",
+      shares: "74.1K",
       analysis: {
-        name: "Candlelit Book Quote Card",
-        description: "A single static-feeling atmospheric shot of a book beside a flickering candle, with a prominent literary quote overlaid in white text \u2014 no voiceover, no cuts, pure mood.",
+        name: "Intimate Romantic Tension",
+        description: "A single smoldering near-kiss AI-generated fantasy scene with a devastating quote overlay, ending on a book cover reveal — no voiceover, pure tension.",
         narrative_style: "Text Only",
         duration_seconds: 10,
-        content_analysis: "The dark academia candlelit aesthetic taps into BookTok's love of moody atmospheric content. A gut-punch quote does all the selling \u2014 viewers pause, reread, and save. High save-to-view ratio format.",
-        genre_topic: "Psychological Thriller",
-        visual_direction: "Cinematic dark academia flatlay, dark wooden surface, amber tealight candle, deep shadows, moody candlelit atmosphere, portrait orientation",
-        hook_strategy: "Visceral Scenario \u2014 A quote so unsettling it makes readers pause mid-scroll"
+        content_analysis: "AI-generated dark romantic fantasy visuals tap into BookTok's obsession with morally grey love interests and forbidden romance. The near-kiss tension and single devastating quote create an irresistible scroll-stopper with massive save rates.",
+        genre_topic: "YA Fantasy Romance",
+        visual_direction: "Cinematic dark romantic fantasy, extreme shallow depth of field, candlelit close-up of two figures nearly touching, warm amber and deep black shadows, soft gold rim lighting",
+        hook_strategy: "Visceral Scenario — A smoldering near-kiss moment so charged it stops the scroll before the quote even registers"
       }
     },
     book: {
-      id: "my-husbands-wife",
-      title: "My Husband's Wife",
-      author: "Alice Feeney",
+      id: "once-upon-a-broken-heart",
+      title: "Once Upon a Broken Heart",
+      author: "Stephanie Garber",
       imprint: "Flatiron Books",
-      isbn: "9781250337818",
-      coverUrl: "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1747668611i/231127462.jpg",
-      genre: "Psychological Thriller",
-      description: "When she returns to Spyglass, the enchanting old house in Hope Falls, nothing is as it should be. Her key doesn't fit. A woman eerily similar to her answers the door. And her husband insists that the stranger is his wife.",
-      bookTokAppeal: "Alice Feeney's trademark unreliable narrators and jaw-dropping twists make this catnip for thriller BookTok \u2014 the 'who is the real wife?' premise is instantly shareable.",
-      color: "#c8601a"
+      isbn: "9781250268396",
+      coverUrl: "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1615486938i/55987278.jpg",
+      genre: "YA Fantasy Romance",
+      description: "Evangeline Fox strikes a deal with the charismatic but wicked Prince of Hearts, Jacks, to stop her true love's wedding — but bargaining with an immortal is a dangerous game, and Jacks wants far more than she'd pledged.",
+      bookTokAppeal: "Jacks is BookTok's ultimate morally grey love interest — the dangerous bargain premise and fairy-tale-dark romance are endlessly shareable.",
+      color: "#C8860A"
     },
-    videoPath: "/videos/husbands_wife_v1_final.mp4",
+    videoPath: "/videos/broken_heart_v1_final.mp4",
     formatSpec: {
       format_meta: {
-        name: "candlelit_book_quote_card",
-        description: "A single static-feeling atmospheric shot of a book beside a flickering candle, with a prominent literary quote overlaid in white text \u2014 no voiceover, no cuts, pure mood."
+        name: "intimate_romantic_tension",
+        description: "A single smoldering near-kiss fantasy scene with a devastating quote overlay, ending on a book cover reveal — no voiceover, pure tension."
       },
       script_direction: {
         narrative_style: "text_only",
         narrative_voice: "other",
         hook_strategy: "visceral_scenario",
-        segment_pacing: "even",
+        segment_pacing: "slow_build_fast_end",
         overlay_text_style: "full_sentence",
-        caption_style: "emotional_with_hashtags",
+        caption_style: "pov_with_hashtags",
         content_rules: [
-          "ENTIRE video is 10 seconds \u2014 single atmospheric clip with no cuts",
-          "Display one emotionally resonant quote from the book in large white serif-style text in the upper-left quadrant",
-          "Quote should be 2\u20134 lines max, followed by an em-dash attribution line",
-          "No voiceover \u2014 the quote IS the content; let it breathe for the full duration",
-          "The book's cover must be visible and legible in the lower half of the frame",
-          "A lit candle must appear beside the book to create warm practical lighting",
-          "Dark, moody background reinforces the atmospheric tone",
-          "Choose a quote that feels emotionally gut-punch worthy"
+          "ENTIRE video is 10-12 seconds — one scene, one feeling, no cuts except the final book cover reveal",
+          "Scene is a fantasy near-kiss moment — two figures, breath apart, no contact — pure suspended tension",
+          "No voiceover — the single quote overlay IS the narrative",
+          "Quote must be devastatingly romantic: longing, restraint, or ache — pulled from the book or written in its voice",
+          "Quote appears on screen within the first 2 seconds and holds for the full scene",
+          "Book cover appears as a final hard cut in the last 1-2 seconds — no animation, no fade",
+          "Do NOT break the mood with upbeat text or exclamation points",
+          "Overlay text should feel like a whisper — short, weighted, unforgettable",
+          "Content must be book-agnostic — designed to work for any dark romantic fantasy title"
         ]
       },
       visual_direction: {
-        image_style_prefix: "Cinematic dark academia flatlay, shot from a slight low angle looking across a dark wooden surface. A paperback book leans diagonally against a surface, its cover facing the camera. A small glowing tealight candle in an amber glass holder sits beside it, casting warm orange and amber light across the scene. Deep shadows fill the upper background. Moody, intimate, candlelit atmosphere. Portrait orientation, photorealistic.",
+        image_style_prefix: "Cinematic dark romantic fantasy, extreme shallow depth of field, candlelit close-up of two figures nearly touching — faces inches apart, eyes locked, breath suspended. Warm amber and deep black shadows, soft gold rim lighting, rose gold skin tones. Film still quality, 85mm portrait lens, bokeh candleflame background, velvet and shadow textures. No kiss — only the moment before. Aching intimacy.",
         color_mood: "dark_cozy",
-        color_palette_hint: ["#1a0f0a", "#3d1f0d", "#c8601a", "#e8a040", "#2a2a3a"],
-        image_types: ["book_on_surface", "flatlay", "atmospheric"],
+        color_palette_hint: ["#C8860A", "#0D1B2A", "#B76E79", "#0D0D0D", "#D4A017"],
+        image_types: ["cinematic_scene", "atmospheric"],
         clip_duration: 10
       },
       audio_direction: {
         has_voiceover: false,
         voice_gender: null,
-        voice_tone: "warm_friendly",
+        voice_tone: "whispery_dramatic",
         has_music: true,
         music_mood: "dark_ambient",
-        music_genre: "ambient atmospheric",
+        music_genre: "dark romantic piano / slow strings",
         music_volume: 0.6
       }
     },
     script: {
       creative_brief: {
-        style: "Dark Academia Atmospheric Quote Card",
-        style_rationale: "The candlelit flatlay format mirrors the book's liminal, between-worlds tension \u2014 the candle flame itself embodies Feeney's 'half dark' imagery.",
-        tone: "Hushed, melancholic, eerie \u2014 the feeling of standing in a doorway between two versions of your life",
-        target_hook: "A quote so quietly unsettling it makes readers pause mid-scroll and read it twice",
-        music_direction: "Slow ambient atmospheric, ~70 BPM \u2014 sparse piano or bowed strings, low drone underneath, no percussion"
+        style: "Candlelit Dark Fairy Tale — Suspended Breath",
+        style_rationale: "The intimate_romantic_tension format demands a single unbroken mood, and Jacks as the Prince of Hearts is built for it — morally grey, magnetic, dangerous. The whole book lives in the space between want and ruin, so the video lives there too.",
+        tone: "Smoldering restraint. The kind of quiet that precedes something irreversible.",
+        target_hook: "The quote lands before the eyes adjust — 'You should be afraid of me' — and then you see why.",
+        music_direction: "Dark romantic piano, single melody line, ~50 BPM — no percussion, just slow minor-key strings underneath, the kind that makes your chest feel heavy. Think late-night candlelight, not a dance floor."
       },
       total_duration_seconds: 10,
       segments: [
         {
           segment_number: 1,
           start_time: 0.0,
+          end_time: 8.0,
+          voiceover_text: null,
+          voice_direction: null,
+          overlay_text: "You should be afraid of me."
+        },
+        {
+          segment_number: 2,
+          start_time: 8.0,
           end_time: 10.0,
           voiceover_text: null,
           voice_direction: null,
-          overlay_text: "\u201CThe half dark is my happy place. That thin sliver of time that separates night from day, and day from night. Twilight. Sunset. Nightfall.\u201D\n\u2014 Alice Feeney, My Husband\u2019s Wife"
+          overlay_text: "Once Upon a Broken Heart — Stephanie Garber"
         }
       ],
-      caption: "that sliver between knowing and not knowing \u{1F56F}\uFE0F this book lives in the half dark and it will not let you go. comment the last book that gave you that eerie, can\u2019t-put-it-down feeling \u{1F447} #booktok #psychologicalthriller #myhusbandswifeBook #alicefeeney #darkacademia #thrillerbooks",
-      cta: "Comment the last book that gave you that eerie, can\u2019t-put-it-down feeling \u{1F447}"
+      caption: "he said it like a warning. she heard it like a promise. \u{1F5A4}\u{1F0CF} #onceuponabrokenheartbook #stephaniegarber #jackspohe #booktok #darkromance #fantasyromance #yafantasy #morallygrey",
+      cta: "save this for when you need a reminder why Jacks broke us all \u{1F5A4}"
     }
   },
 

@@ -373,7 +373,7 @@ export const promptDemos = [
               overlay_text: "WILD REVERENCE\nRebecca Ross"
             }
           ],
-          caption: "doomed from the start. loving anyway. \uD83C\uDF29\uFE0F\u26A1 #WildReverence #RebeccaRoss #BookTok #Romantasy #DarkFantasy #DivineRivals #FourthWing #FantasyRomance #BookTrailer",
+          caption: "true love is more divine than any ruthless god. \uD83C\uDF29\uFE0F\u26A1 #WildReverence #RebeccaRoss #BookTok #Romantasy #DarkFantasy #DivineRivals #FourthWing #FantasyRomance #BookTrailer",
           cta: "Would you love a god who couldn't stay? \uD83D\uDDA4 Drop a \u26A1 if you're already pre-ordering."
         },
         videoPath: "/videos/wild_reverence_v4_final.mp4"
