@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   TrendingUp, Eye, Heart, MessageCircle, Share2,
@@ -298,16 +299,19 @@ export default function TrendingVideos({ onSelectVideo }) {
         })}
       </div>
 
-      {/* Detail Panel */}
-      <AnimatePresence>
-        {selectedDetail && (
-          <VideoDetailPanel
-            video={selectedDetail}
-            onClose={() => setSelectedDetail(null)}
-            onSelect={onSelectVideo}
-          />
-        )}
-      </AnimatePresence>
+      {/* Detail Panel — rendered via portal to escape .main-content stacking context */}
+      {createPortal(
+        <AnimatePresence>
+          {selectedDetail && (
+            <VideoDetailPanel
+              video={selectedDetail}
+              onClose={() => setSelectedDetail(null)}
+              onSelect={onSelectVideo}
+            />
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </motion.div>
   );
 }
