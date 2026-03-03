@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { createPortal } from 'react-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
-  ArrowLeft, Sparkles, BookOpen, FileText, Mic, Image, Zap
+  ArrowLeft, Sparkles, BookOpen, FileText, Mic, Image, Zap, RefreshCw
 } from 'lucide-react';
+import BookPickerModal from './BookPickerModal';
 import './Configuration.css';
 
 const pageVariants = {
@@ -126,7 +128,10 @@ export default function Configuration({ selectedVideo, demoVideo, onGenerate, on
     setFields(prev => ({ ...prev, [key]: value }));
   };
 
-  const book = demoVideo?.book;
+  const [selectedBook, setSelectedBook] = useState(demoVideo?.book);
+  const [showBookPicker, setShowBookPicker] = useState(false);
+
+  const book = selectedBook;
 
   return (
     <motion.div
@@ -181,8 +186,9 @@ export default function Configuration({ selectedVideo, demoVideo, onGenerate, on
                 <Zap size={11} />
                 Book auto-matched by Signal
               </span>
-              <button className="mini-change-link" onClick={onBack}>
-                Select another Macmillan book
+              <button className="mini-change-btn" onClick={() => setShowBookPicker(true)}>
+                <RefreshCw size={12} />
+                Select Another Book
               </button>
             </div>
           </motion.div>
@@ -260,6 +266,24 @@ export default function Configuration({ selectedVideo, demoVideo, onGenerate, on
           </button>
         </motion.div>
       </motion.div>
+
+      {/* Book Picker Modal — rendered via portal */}
+      {createPortal(
+        <AnimatePresence>
+          {showBookPicker && (
+            <BookPickerModal
+              currentBook={demoVideo?.book}
+              videoGenre={selectedVideo?.analysis?.genre_topic}
+              onSelect={(book) => {
+                setSelectedBook(book);
+                setShowBookPicker(false);
+              }}
+              onClose={() => setShowBookPicker(false)}
+            />
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </motion.div>
   );
 }

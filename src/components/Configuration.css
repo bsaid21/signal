@@ -70,20 +70,25 @@
   letter-spacing: 0.01em;
 }
 
-.mini-change-link {
-  background: none;
-  border: none;
-  color: var(--text-dim);
+.mini-change-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
   font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
   cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  padding: 0;
-  transition: color var(--transition-fast);
+  transition: all 0.2s;
 }
 
-.mini-change-link:hover {
+.mini-change-btn:hover {
   color: var(--accent-gold-light);
+  border-color: var(--border-accent);
+  background: var(--accent-gold-dim);
 }
 
 /* ===== Format Name Badge ===== */
