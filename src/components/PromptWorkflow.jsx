@@ -205,9 +205,9 @@ export default function PromptWorkflow() {
   const hasConcepts = concepts.length > 0;
 
   const [promptText, setPromptText] = useState(demo.prompt || '');
-  const [specGenerated, setSpecGenerated] = useState(hasConcepts);
+  const [specGenerated, setSpecGenerated] = useState(false);
   const [specLoading, setSpecLoading] = useState(false);
-  const [videoGenerated, setVideoGenerated] = useState(hasConcepts);
+  const [videoGenerated, setVideoGenerated] = useState(false);
   const [videoLoading, setVideoLoading] = useState(false);
 
   // Active concept tab
