@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Helper: parse view strings like "2.1M" or "487K" into numbers
 export function parseViews(viewStr) {
   const num = parseFloat(viewStr);
@@ -6,6 +7,8 @@ export function parseViews(viewStr) {
   return num;
 }
 
+=======
+>>>>>>> b72829f9db38fbefa32b58f4f34c9d04c6ae6e7a
 // Trending BookTok videos data — top 3 are our demo references with demoId links
 export const trendingVideos = [
   // ── Demo references (linked to demoVideos.js) ────────────────────
